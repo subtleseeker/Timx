@@ -8,3 +8,9 @@ The timer is made to fulfill the needs of a competitive coder, so that he can ke
 * Keep track of number of questions completed.
 * Keep up with the elapsed time.
 * Timer which can be incremented if you need more time to complete the question.
+
+### How to use?
+* Install pyqt framework with:  
+`sudo apt install python-qt4`
+* Then run the timer with:  
+`python timx.py`
