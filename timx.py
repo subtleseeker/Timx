@@ -1,4 +1,4 @@
-import sys, time
+import sys, time, pygame
 from PyQt4 import QtGui, QtCore, uic
 
 
@@ -14,6 +14,8 @@ class Window(QtGui.QMainWindow):
 
 		# self.setCentralWidget(self.widget)
 		# widget.resize()
+		pygame.mixer.init()
+		pygame.mixer.music.load("beep.wav")
 
 		self.add15m.clicked.connect(lambda: self.addMin(15))
 		self.add10m.clicked.connect(lambda: self.addMin(10))
@@ -79,6 +81,8 @@ class Window(QtGui.QMainWindow):
 				self.elapsedTime()
 		else:
 			self.timer.stop()
+			pygame.mixer.music.play()
+			self.startButton.setText("Start")
 			stop = QtGui.QMessageBox.warning(self,"Time is up", "Boom")
 
 		# time = str("{:2d}:{:2d}".format(mins, secs)) #Python3
