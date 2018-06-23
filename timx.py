@@ -15,9 +15,9 @@ class Window(QtGui.QMainWindow):
 		# self.setCentralWidget(self.widget)
 		# widget.resize()
 
-		self.add15m.clicked.connect(self.add15Min)
-		self.add10m.clicked.connect(self.add10Min)
-		self.add5m.clicked.connect(self.add5Min)
+		self.add15m.clicked.connect(lambda: self.addMin(15))
+		self.add10m.clicked.connect(lambda: self.addMin(10))
+		self.add5m.clicked.connect(lambda: self.addMin(5))
 
 		self.addQButton.clicked.connect(self.onQPlus)
 		self.resetButton.clicked.connect(self.onReset)
@@ -29,32 +29,15 @@ class Window(QtGui.QMainWindow):
 
 		self.show()
 
-	def add15Min(self):
+	def addMin(self, add_mins):
 		global mins, secs, time
 		time = self.lineEdit.text()
 		mins = int((time.split(':'))[0])
-		mins+=15
+		mins+=add_mins
 		secs = int((time.split(':'))[1])
 		time = str(mins).zfill(2) + ":" + str(secs).zfill(2)
 		self.lineEdit.setText(time)
 
-	def add10Min(self):
-		global mins, secs, time
-		time = self.lineEdit.text()
-		mins = int((time.split(':'))[0])
-		mins+=10
-		secs = int((time.split(':'))[1])
-		time = str(mins).zfill(2) + ":" + str(secs).zfill(2)
-		self.lineEdit.setText(time)
-
-	def add5Min(self):
-		global mins, secs, time
-		time = self.lineEdit.text()
-		mins = int((time.split(':'))[0])
-		secs = int((time.split(':'))[1])
-		mins+=5
-		time = str(mins).zfill(2) + ":" + str(secs).zfill(2)
-		self.lineEdit.setText(time)
 
 	def onReset(self):
 		self.lineEdit.setText("15:00")
@@ -100,7 +83,7 @@ class Window(QtGui.QMainWindow):
 
 		# time = str("{:2d}:{:2d}".format(mins, secs)) #Python3
 		time = str(mins).zfill(2)+':'+str(secs).zfill(2)
-		print time+"^^"
+		# print time+"^^"
 		self.lineEdit.setText(time)
 
 	def onQPlus(self):
