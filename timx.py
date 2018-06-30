@@ -15,7 +15,7 @@ class Window(QtGui.QMainWindow):
 		# self.setCentralWidget(self.widget)
 		# widget.resize()
 		pygame.mixer.init()
-		pygame.mixer.music.load("beep.wav")
+		pygame.mixer.music.load("tick.wav")
 
 		self.add15m.clicked.connect(lambda: self.addMin(15))
 		self.add10m.clicked.connect(lambda: self.addMin(10))
@@ -59,9 +59,12 @@ class Window(QtGui.QMainWindow):
 		if(text == "Start"):
 			self.startButton.setText("Pause")
 			self.timer.start(1000)	
+			pygame.mixer.music.play(-1)
+			pygame.mixer.music.set_volume(1)
 
 		if(text == "Pause"):
 			self.startButton.setText("Start")
+			pygame.mixer.music.stop()
 			self.timer.stop()
 			# self.startButton.clicked.connect(self.timer.stop())
 			
@@ -69,6 +72,7 @@ class Window(QtGui.QMainWindow):
 
 	def onPause(self):
 		self.timer.stop()
+		pygame.mixer.music.stop()
 
 	def countDown(self):
 		global mins, secs, time
@@ -81,6 +85,8 @@ class Window(QtGui.QMainWindow):
 				self.elapsedTime()
 		else:
 			self.timer.stop()
+			pygame.mixer.music.stop()
+			pygame.mixer.music.load("beep.wav")
 			pygame.mixer.music.play()
 			self.startButton.setText("Start")
 			stop = QtGui.QMessageBox.warning(self,"Time is up", "Boom")
