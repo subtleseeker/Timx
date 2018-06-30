@@ -10,7 +10,7 @@ class Window(QtGui.QMainWindow):
 		self.home()
 
 	def home(self):
-		QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
+		# QtGui.QApplication.setStyle(QtGui.QStyleFactory.create("Cleanlooks"))
 
 		# self.setCentralWidget(self.widget)
 		# widget.resize()
