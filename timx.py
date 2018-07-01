@@ -16,7 +16,7 @@ class Window(QtGui.QMainWindow):
 		# self.setCentralWidget(self.widget)
 		# widget.resize()
 		pygame.mixer.init()
-		pygame.mixer.music.load("tick.wav")
+		pygame.mixer.music.load("./assets/audio/tick.wav")
 
 		self.add15m.clicked.connect(lambda: self.addMin(15))
 		self.add10m.clicked.connect(lambda: self.addMin(10))
@@ -77,7 +77,7 @@ class Window(QtGui.QMainWindow):
 			self.startButton.setText("Pause")
 			self.timer.start(1000)	
 			
-			pygame.mixer.music.load("tick.wav")
+			pygame.mixer.music.load("./assets/audio/tick.wav")
 			pygame.mixer.music.play(-1)
 
 		if(text == "Pause"):
@@ -105,7 +105,7 @@ class Window(QtGui.QMainWindow):
 			self.timer.stop()
 
 			pygame.mixer.music.stop()
-			pygame.mixer.music.load("beep.wav")
+			pygame.mixer.music.load("./assets/audio/beep.wav")
 			pygame.mixer.music.set_volume(1)
 			pygame.mixer.music.play()
 			while pygame.mixer.music.get_busy() == True:

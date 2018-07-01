@@ -162,7 +162,7 @@
            </property>
            <property name="icon">
             <iconset>
-             <normaloff>mute.svg</normaloff>mute.svg</iconset>
+             <normaloff>assets/icon/mute.svg</normaloff>assets/icon/mute.svg</iconset>
            </property>
           </widget>
          </item>
