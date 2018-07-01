@@ -18,6 +18,8 @@ class Window(QtGui.QMainWindow):
 		pygame.mixer.init()
 		pygame.mixer.music.load("./assets/audio/tick.wav")
 
+		self.setWindowIcon(QtGui.QIcon('./assets/icon/timx.png'))
+
 		self.add15m.clicked.connect(lambda: self.addMin(15))
 		self.add10m.clicked.connect(lambda: self.addMin(10))
 		self.add5m.clicked.connect(lambda: self.addMin(5))
