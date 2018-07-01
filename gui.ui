@@ -181,6 +181,10 @@
            <property name="text">
             <string>Reset</string>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/reset.svg</normaloff>assets/icon/reset.svg</iconset>
+           </property>
           </widget>
          </item>
          <item row="0" column="1">
@@ -188,12 +192,20 @@
            <property name="text">
             <string>Q+=1</string>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/plus.svg</normaloff>assets/icon/plus.svg</iconset>
+           </property>
           </widget>
          </item>
          <item row="0" column="2">
           <widget class="QPushButton" name="startButton">
            <property name="text">
             <string>Start</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/start.png</normaloff>assets/icon/start.png</iconset>
            </property>
           </widget>
          </item>
@@ -232,6 +244,16 @@
            <property name="text">
             <string>+15m</string>
            </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/15.png</normaloff>assets/icon/15.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
+           </property>
            <property name="flat">
             <bool>true</bool>
            </property>
@@ -241,6 +263,16 @@
           <widget class="QPushButton" name="add10m">
            <property name="text">
             <string>+10m</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/10.png</normaloff>assets/icon/10.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
            <property name="flat">
             <bool>true</bool>
@@ -254,6 +286,16 @@
            </property>
            <property name="text">
             <string>+5m</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>assets/icon/5.png</normaloff>assets/icon/5.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>24</width>
+             <height>24</height>
+            </size>
            </property>
            <property name="flat">
             <bool>true</bool>
