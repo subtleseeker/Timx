@@ -71,7 +71,7 @@ class Window(QtGui.QMainWindow):
 		global mins, secs, time
 
 		time = self.lineEdit.text()
-		print time+"****"
+		print(time)
 		mins = int((time.split(':'))[0])
 		secs = int((time.split(':'))[1])
 
@@ -88,7 +88,7 @@ class Window(QtGui.QMainWindow):
 			self.timer.stop()
 			# self.startButton.clicked.connect(self.timer.stop())
 			
-		print text
+		print(text)
 
 	def onPause(self):
 		self.timer.stop()
@@ -121,14 +121,14 @@ class Window(QtGui.QMainWindow):
 
 		# time = str("{:2d}:{:2d}".format(mins, secs)) #Python3
 		time = str(mins).zfill(2)+':'+str(secs).zfill(2)
-		# print time+"^^"
+		# print(time+"^^")
 		self.lineEdit.setText(time)
 
 	def onQPlus(self):
 		num = int(self.labelQNum.text())
 		self.labelQNum.setNum(num+1)
 		self.onReset();
-		print num+1
+		print(num+1)
 
 		self.textEdit.append("Q"+ self.labelQNum.text() +": "+ eTime)
 
