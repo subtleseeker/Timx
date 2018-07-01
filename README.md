@@ -16,4 +16,6 @@ The timer is made to fulfill the needs of a competitive coder, so that he can ke
 `sudo apt install python-qt4`
 * Then run the timer with:  
 `python timx.py`
-
+* You can even set an alias with:  
+`alias -g timx="/home/subtleseeker/Desktop/Pros/PyQt-pros/Timx/ && python timx.py & disown;  exit"`  
+After which you can run the timer with just `timx`.

@@ -49,7 +49,7 @@
             <bool>false</bool>
            </property>
            <property name="text">
-            <string>15:00</string>
+            <string>00:02</string>
            </property>
            <property name="frame">
             <bool>false</bool>
@@ -75,26 +75,13 @@
            </property>
           </spacer>
          </item>
-         <item row="1" column="0">
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
          <item row="1" column="1">
           <widget class="QLabel" name="elapsedTimeLabel">
            <property name="font">
             <font>
              <pointsize>28</pointsize>
              <weight>75</weight>
-             <italic>true</italic>
+             <italic>false</italic>
              <bold>true</bold>
             </font>
            </property>
@@ -167,6 +154,17 @@
             </widget>
            </item>
           </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QPushButton" name="volumeButton">
+           <property name="text">
+            <string>Mute</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>mute.svg</normaloff>mute.svg</iconset>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>

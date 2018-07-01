@@ -1,6 +1,7 @@
 import sys, time, pygame
 from PyQt4 import QtGui, QtCore, uic
 
+SONG_END = pygame.USEREVENT + 1
 
 class Window(QtGui.QMainWindow):
 
@@ -28,8 +29,24 @@ class Window(QtGui.QMainWindow):
 		self.timer = QtCore.QTimer(self)
 		self.timer.timeout.connect(self.countDown)
 
+		self.volumeButton.clicked.connect(self.onMute)
 
 		self.show()
+
+	def onMute(self):
+		text = self.volumeButton.text()
+
+		if(text == "Mute"):
+			self.volumeButton.setText("Unmute")
+			pygame.mixer.music.set_volume(0)
+			# self.volumeButton.setIcon("")	
+			
+			# pygame.mixer.music.load("tick.wav")
+
+		if(text == "Unmute"):
+			self.volumeButton.setText("Mute")
+			pygame.mixer.music.set_volume(1)
+			
 
 	def addMin(self, add_mins):
 		global mins, secs, time
@@ -62,7 +79,6 @@ class Window(QtGui.QMainWindow):
 			
 			pygame.mixer.music.load("tick.wav")
 			pygame.mixer.music.play(-1)
-			pygame.mixer.music.set_volume(1)
 
 		if(text == "Pause"):
 			self.startButton.setText("Start")
@@ -90,7 +106,13 @@ class Window(QtGui.QMainWindow):
 
 			pygame.mixer.music.stop()
 			pygame.mixer.music.load("beep.wav")
+			pygame.mixer.music.set_volume(1)
 			pygame.mixer.music.play()
+			while pygame.mixer.music.get_busy() == True:
+				continue
+			if self.volumeButton.text()=="Unmute":
+				pygame.mixer.music.set_volume(0)
+
 		
 			self.startButton.setText("Start")
 			stop = QtGui.QMessageBox.warning(self,"Time is up", "Boom")
@@ -106,7 +128,10 @@ class Window(QtGui.QMainWindow):
 		self.onReset();
 		print num+1
 
+		self.textEdit.append("Q"+ self.labelQNum.text() +": "+ eTime)
+
 	def elapsedTime(self):
+		global eTime
 		eTime = self.elapsedTimeLabel.text()
 		eMins = int((eTime.split(':'))[0])
 		eSecs = int((eTime.split(':'))[1])
@@ -118,6 +143,7 @@ class Window(QtGui.QMainWindow):
 
 		eTime = str(eMins).zfill(2)+':'+str(eSecs).zfill(2)
 		self.elapsedTimeLabel.setText(eTime)
+		return eTime
 
 
 	def close_application(self):
