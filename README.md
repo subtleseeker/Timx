@@ -18,6 +18,6 @@ The timer is made to fulfill the needs of a competitive coder, so that he can ke
 `sudo pip install python2 pygame`
 * Then run the timer with:  
 `python2.7 timx.py`
-* **BONUS:** You can even set an alias with:  
-`alias -g timx="/home/subtleseeker/Desktop/Pros/PyQt-pros/Timx/ && python timx.py & disown;  exit"`  
+* **BONUS:** You can even set an alias by adding this in your `.bashrc` or `.zshrc`:  
+`alias -g timx="python2.7 ~/Desktop/Timx/timx.py & disown; exit"`  
 After which you can run the timer with just `timx`.
